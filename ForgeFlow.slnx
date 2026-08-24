@@ -1,1 +1,8 @@
-<Solution />
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ForgeFlow.Api/ForgeFlow.Api.csproj" />
+    <Project Path="src/ForgeFlow.Domain/ForgeFlow.Domain.csproj" />
+    <Project Path="src/ForgeFlow.Engine/ForgeFlow.Engine.csproj" />
+  </Folder>
+  <Folder Name="/tests/" />
+</Solution>
