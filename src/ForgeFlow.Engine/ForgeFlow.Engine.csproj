@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ForgeFlow.Domain\ForgeFlow.Domain.csproj" />
+  </ItemGroup>
+
 </Project>
