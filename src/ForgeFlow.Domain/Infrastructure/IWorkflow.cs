@@ -6,6 +6,6 @@ namespace ForgeFlow.Domain.Infrastructure
 {
     public interface IWorkflow
     {
-        Task StartWorkflowAsync(string workflowName);
+        Task StartWorkflowAsync(string workflowName, CancellationToken cancellationToken);
     }
 }
