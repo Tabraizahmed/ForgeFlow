@@ -3,6 +3,7 @@
     <Project Path="src/ForgeFlow.Api/ForgeFlow.Api.csproj" />
     <Project Path="src/ForgeFlow.Domain/ForgeFlow.Domain.csproj" />
     <Project Path="src/ForgeFlow.Engine/ForgeFlow.Engine.csproj" />
+    <Project Path="src/TestConsoleApp/TestConsoleApp.csproj" Id="983cd0bb-bf85-43e9-a4ee-4d939b8dd808" />
   </Folder>
   <Folder Name="/tests/" />
 </Solution>
