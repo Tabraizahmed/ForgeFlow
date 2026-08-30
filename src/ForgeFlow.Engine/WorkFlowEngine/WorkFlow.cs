@@ -9,15 +9,24 @@ namespace ForgeFlow.Engine.WorkFlowEngine
 {
     public class WorkFlow : IWorkflow
     {
-        public async Task StartWorkflowAsync(string workflowName, CancellationToken cancellationToken)
+        public async Task StartWorkflowAsync(string workflowName, CancellationToken cancellationToken, int taskId)
         {
-            var workFlow = new WorkflowDefinition { Name= workflowName, State = WorkFlowState.Start, Step = new WorkFlowStep { WorkFlowStepName = WorkFlowStepEnum.LoadTemplate } };
-            
-            Console.WriteLine($"Workflow '{workFlow.Name}' started with state '{workFlow.State}' and step '{workFlow.Step.WorkFlowStepName}' started at {workFlow.StartedAt}.");
+            var workFlow = new WorkflowDefinition { Name = workflowName, State = WorkFlowState.Start, Step = new WorkFlowStep { WorkFlowStepName = WorkFlowStepEnum.LoadTemplate } };
 
-            
+            Console.WriteLine($"Workflow '{workFlow.Name}' started with state '{workFlow.State}' and step '{workFlow.Step.WorkFlowStepName}' started at {workFlow.StartedAt}.");
             workFlow.State = WorkFlowState.Running;
             workFlow.Step.WorkFlowStepName = WorkFlowStepEnum.ValidateTemplate;
+
+
+            // if task id is even number then make the workflow status successful, else make it failed. This is just for testing purpose.
+
+            if (taskId%2 != 0)
+            {
+                workFlow.State = WorkFlowState.Stopped;
+                Console.WriteLine($"Workflow '{workFlow.Name}' stopped with state '{workFlow.State}' and step '{workFlow.Step.WorkFlowStepName}' at {DateTime.Now}.");
+                return;
+            }
+
 
             Console.WriteLine($"Workflow '{workFlow.Name}' started with state '{workFlow.State}' and step '{workFlow.Step.WorkFlowStepName}' ");
 
